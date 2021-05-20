@@ -47,4 +47,4 @@ while True:
             url=discord_webhook, content="Everything no stock")
         response = webhook.execute()
 
-    time.sleep(900)
+    time.sleep(600)
