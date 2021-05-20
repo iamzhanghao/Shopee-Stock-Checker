@@ -5,6 +5,7 @@ import time
 from discord_webhook import DiscordWebhook
 
 product_url = "https://shopee.sg/product/70006977/1704784042"
+# product_url = "https://shopee.sg/Seagate-Backup-Plus-Hub-Desktop-4TB-6TB-8TB-10TB-STEL4000300-External-HDD-i.70006977.1584597848"
 chrom_driver_path = "/usr/local/bin/chromedriver"
 discord_webhook = "https://discordapp.com/api/webhooks/844968739535716423/h6pt3utoJK1DCt8dLh78wiM5EalA_8Rgawn5flVpbR3-Fl1R494mpl0qVtXrlOk4MHpj"
 
@@ -39,7 +40,16 @@ while True:
         else:
             print(item + ' In Stock')
             webhook = DiscordWebhook(
-                url=discord_webhook, content=item+' in stock!!!!!')
+                url=discord_webhook, content='@everyone ' + item + ' in stock!!!!! ')
+            response = webhook.execute()
+            webhook = DiscordWebhook(
+                url=discord_webhook, content='@everyone ' + item + ' in stock!!!!! ')
+            response = webhook.execute()
+            webhook = DiscordWebhook(
+                url=discord_webhook, content='@everyone ' + item + ' in stock!!!!! ')
+            response = webhook.execute()
+            webhook = DiscordWebhook(
+                url=discord_webhook, content='Get it now! ' + product_url)
             response = webhook.execute()
 
     if len(all) == len(no_stock) and len(all) != 0 and len(no_stock) != 0:
